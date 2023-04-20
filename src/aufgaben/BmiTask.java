@@ -106,7 +106,8 @@ public class BmiTask extends Task {
         int startAge = 25;
         boolean done = false;
 
-        for(int i = startAge;i <65;i=i+10) {
+        // Für unter 65-Jährige
+        for(int i = startAge;i < 65;i=i+10) {
             if(!done) {
                 if (age < i) {
                     if (targetBmi < lowerEnd) weightType--;
@@ -118,8 +119,14 @@ public class BmiTask extends Task {
             }
         }
 
+        // Für 65-Jährige und ältere
+        if(!done && age >= 65) {
+            if (targetBmi < lowerEnd++) weightType--;
+            if (targetBmi > upperEnd++) weightType++;
+        }
+
         DecimalFormat df = new DecimalFormat("#.##");
-        System.out.printf("Dein BMI ist %s.%n",df.format(targetBmi));
+        System.out.printf("Dein BMI ist %s (%s Jahre).%n",df.format(targetBmi),age);
         String typ = "";
         switch (weightType) {
             case -1:
@@ -132,7 +139,7 @@ public class BmiTask extends Task {
                 typ = "im grünen Bereich";
                 break;
         }
-        System.out.printf("Du bist %s.%n",typ);
+        System.out.printf("Du bist %s. (%s-%s) %n",typ,lowerEnd,upperEnd);
     }
 
 }
