@@ -61,8 +61,8 @@ public class BmiTask extends Task {
                             System.out.println("Ok, du bist eine Frau.");
                             sex = true;
                         } else {
-                            sex = false;
                             System.out.println("Ok, du bist ein Mann.");
+                            sex = false;
                         }
                         step--;
                         break;
