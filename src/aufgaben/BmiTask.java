@@ -110,12 +110,13 @@ public class BmiTask extends Task {
         for(int i = startAge;i < 65;i=i+10) {
             if(!done) {
                 if (age < i) {
-                    if (targetBmi < lowerEnd) weightType--;
-                    if (targetBmi > upperEnd) weightType++;
+                    if (targetBmi < lowerEnd) weightType = -1;
+                    if (targetBmi > upperEnd) weightType = 1;
                     done = true;
+                } else {
+                    lowerEnd++;
+                    upperEnd++;
                 }
-                lowerEnd++;
-                upperEnd++;
             }
         }
 
