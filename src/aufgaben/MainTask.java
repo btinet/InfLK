@@ -16,6 +16,7 @@ public class MainTask extends Task {
 
     public MainTask () throws IOException {
         addTask(new RabattTask());
+        addTask(new BmiTask());
         init();
     }
 
@@ -35,6 +36,7 @@ public class MainTask extends Task {
             int i = 1;
             for (Task task : tasks) {
                 System.out.printf("%s: %S%n",i,task.getTitle());
+                i++;
             }
             try {
                 System.out.println();
