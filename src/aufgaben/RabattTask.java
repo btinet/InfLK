@@ -15,12 +15,12 @@ public class RabattTask extends Task {
         setDescription("Rabatt nach Kundennummer");
     }
 
-    public void init () {
+    public void init () throws IOException {
         System.out.println("Task gestartet");
         getInput();
     }
 
-    public void getInput () {
+    public void getInput () throws IOException {
 
         while (true) {
             try {
@@ -39,7 +39,7 @@ public class RabattTask extends Task {
                 throw new RuntimeException(e);
             }
         }
-
+        exit();
     }
 
     protected void printRabatt () {

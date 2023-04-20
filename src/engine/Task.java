@@ -1,8 +1,10 @@
 package engine;
 
+import aufgaben.MainTask;
 import com.sun.tools.javac.Main;
 
 import java.io.BufferedReader;
+import java.io.IOException;
 
 public abstract class Task implements TaskInterface{
 
@@ -19,7 +21,7 @@ public abstract class Task implements TaskInterface{
         this.description = description;
     }
 
-    public void exit() {
-
+    public void exit() throws IOException {
+        new MainTask();
     }
 }
