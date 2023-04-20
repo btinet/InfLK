@@ -25,12 +25,12 @@ public class BmiTask extends Task {
         );
     }
 
-    public void init () throws IOException {
+    public void init () {
         printInfo();
         getInput();
     }
 
-    public void getInput () throws IOException {
+    public void getInput () {
 
         while (true) {
             try {
