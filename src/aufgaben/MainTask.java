@@ -34,7 +34,7 @@ public class MainTask extends Task {
             System.out.println("-----------------------");
             int i = 1;
             for (Task task : tasks) {
-                System.out.printf("%s: %S%n",i,task.getDescription());
+                System.out.printf("%s: %S%n",i,task.getTitle());
             }
             try {
                 System.out.println();

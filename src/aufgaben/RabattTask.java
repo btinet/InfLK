@@ -12,11 +12,15 @@ public class RabattTask extends Task {
     double rabattsatz;
 
     public RabattTask () {
-        setDescription("Rabatt nach Kundennummer");
+        setTitle("Rabatt nach Kundennummer");
+        setDescription(
+                "Die Anwendung gibt je nach Kundennummer einen anderen Rabattsatz aus.\n\b" +
+                "Versuche es mit Werten > 5000, Werten < 3000 und auch Werten dazwischen."
+        );
     }
 
     public void init () throws IOException {
-        System.out.println("Task gestartet");
+        printInfo();
         getInput();
     }
 
