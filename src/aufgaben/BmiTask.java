@@ -5,6 +5,7 @@ import engine.Task;
 import io.Input;
 
 import java.io.IOException;
+import java.text.DecimalFormat;
 
 public class BmiTask extends Task {
 
@@ -56,7 +57,13 @@ public class BmiTask extends Task {
                         System.out.print("Bist du eine Frau? (ja/nein): ");
                         input = Input.console.readLine();
                         if(input.equals("exit")) exit();
-                        if(input.equals("ja")) sex = true;
+                        if(input.equals("ja")) {
+                            System.out.println("Ok, du bist eine Frau.");
+                            sex = true;
+                        } else {
+                            sex = false;
+                            System.out.println("Ok, du bist ein Mann.");
+                        }
                         step--;
                         break;
                     case 1:
@@ -71,7 +78,7 @@ public class BmiTask extends Task {
                         System.out.println();
                         printBmi();
                         System.out.println();
-                        System.out.print("nochmal? (ja/nein) ");
+                        System.out.print("Nochmal? (ja/nein) ");
                         input = Input.console.readLine();
                         if(input.equals("nein")) {
                             exit();
@@ -102,7 +109,6 @@ public class BmiTask extends Task {
         for(int i = startAge;i <65;i=i+10) {
             if(!done) {
                 if (age < i) {
-                    System.out.printf("Du bist jünger als %s.%n",i);
                     if (targetBmi < lowerEnd) weightType--;
                     if (targetBmi > upperEnd) weightType++;
                     done = true;
@@ -112,7 +118,8 @@ public class BmiTask extends Task {
             }
         }
 
-        System.out.printf("Dein BMI ist %s.%n",Math.round(targetBmi));
+        DecimalFormat df = new DecimalFormat("#.##");
+        System.out.printf("Dein BMI ist %s.%n",df.format(targetBmi));
         String typ = "";
         switch (weightType) {
             case -1:
