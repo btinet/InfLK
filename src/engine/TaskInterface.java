@@ -1,2 +1,7 @@
-package engine;public interface TaskInterface {
+package engine;
+
+public interface TaskInterface {
+
+    public void init ();
+
 }
