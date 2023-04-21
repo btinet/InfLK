@@ -1,0 +1,8 @@
+<component name="ArtifactManager">
+  <artifact type="jar" name="InfLK:jar">
+    <output-path>$PROJECT_DIR$/out/artifacts/InfLK_jar</output-path>
+    <root id="archive" name="InfLK.jar">
+      <element id="module-output" name="InfLK" />
+    </root>
+  </artifact>
+</component>

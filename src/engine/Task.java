@@ -17,7 +17,6 @@ public abstract class Task implements TaskInterface{
     public void printInfo () {
         System.out.println();
         System.out.printf("%S%n",getTitle());
-        System.out.println();
         System.out.println(getDescription());
     }
 

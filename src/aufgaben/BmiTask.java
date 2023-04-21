@@ -14,7 +14,6 @@ public class BmiTask extends Task {
     int age;
     boolean sex;
     int step = 4;
-    double targetBmi;
     int weightType = 0;
 
     public BmiTask() {
@@ -97,13 +96,14 @@ public class BmiTask extends Task {
     }
 
     protected void printBmi () {
-        targetBmi = bodyWeight / Math.pow(bodyHeight/100,2);
+        double targetBmi = bodyWeight / Math.pow(bodyHeight/100,2);
 
         if(sex) targetBmi++;
 
         int lowerEnd = 19;
         int upperEnd = lowerEnd+5;
         int startAge = 25;
+        weightType = 0;
         boolean done = false;
 
         // Für unter 65-Jährige
@@ -122,8 +122,8 @@ public class BmiTask extends Task {
 
         // Für 65-Jährige und ältere
         if(!done && age >= 65) {
-            if (targetBmi < lowerEnd++) weightType--;
-            if (targetBmi > upperEnd++) weightType++;
+            if (targetBmi < lowerEnd++) weightType = -1;
+            if (targetBmi > upperEnd++) weightType = 1;
         }
 
         DecimalFormat df = new DecimalFormat("#.##");
