@@ -12,7 +12,7 @@ public class BmiTask extends Task {
     double bodyWeight;
     double bodyHeight;
     int age;
-    boolean sex;
+    boolean female;
     int step = 4;
     int weightType = 0;
 
@@ -58,10 +58,10 @@ public class BmiTask extends Task {
                         if(input.equals("exit")) exit();
                         if(input.equals("ja")) {
                             System.out.println("Ok, du bist eine Frau.");
-                            sex = true;
+                            female = true;
                         } else {
                             System.out.println("Ok, du bist ein Mann.");
-                            sex = false;
+                            female = false;
                         }
                         step--;
                         break;
@@ -98,7 +98,7 @@ public class BmiTask extends Task {
     protected void printBmi () {
         double targetBmi = bodyWeight / Math.pow(bodyHeight/100,2);
 
-        if(sex) targetBmi++;
+        if(female) targetBmi++;
 
         int lowerEnd = 19;
         int upperEnd = lowerEnd+5;
