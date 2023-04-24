@@ -131,13 +131,13 @@ public class BmiTask extends Task {
         String typ = "";
         switch (weightType) {
             case -1:
-                typ = "untergewichtig";
+                typ = "leicht zu übersehen";
                 break;
             case 1:
-                typ = "übergewichtig";
+                typ = "sehr eindrucksvoll";
                 break;
             default:
-                typ = "im grünen Bereich";
+                typ = "im Durchschnitt";
                 break;
         }
         System.out.printf("Du bist %s. (%s-%s) %n",typ,lowerEnd,upperEnd);
