@@ -18,6 +18,7 @@ public class MainTask extends Task {
         addTask(new RabattTask());
         addTask(new BmiTask());
         addTask(new ParkuhrTask());
+        addTask(new DiceTask());
         init();
     }
 
