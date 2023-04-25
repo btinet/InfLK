@@ -32,7 +32,7 @@ public class ParkuhrTask extends Task {
             try {
                 System.out.println();
                 System.out.print("Wie lange haben Sie geparkt (in Minuten): ");
-                String input = Input.console.readLine();
+                String input = scanner.next();
                 if(input.equals("exit")) {
                     break;
                 } else {
@@ -41,8 +41,6 @@ public class ParkuhrTask extends Task {
                 }
             } catch (NumberFormatException exception) {
                 System.out.println("Ganze Zahl oder 'exit' eingeben.");
-            } catch (IOException e) {
-                throw new RuntimeException(e);
             }
         }
         exit();

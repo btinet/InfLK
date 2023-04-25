@@ -30,7 +30,7 @@ public class RabattTask extends Task {
             try {
                 System.out.println();
                 System.out.print("Kundennummer eingeben: ");
-                String input = Input.console.readLine();
+                String input = scanner.next();
                 if(input.equals("exit")) {
                     break;
                 } else {
@@ -39,8 +39,6 @@ public class RabattTask extends Task {
                 }
             } catch (NumberFormatException exception) {
                 System.out.println("Kundennummer oder 'exit' eingeben.");
-            } catch (IOException e) {
-                throw new RuntimeException(e);
             }
         }
         exit();

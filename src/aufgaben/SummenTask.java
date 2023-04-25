@@ -5,21 +5,23 @@ import engine.Task;
 import io.Input;
 
 import java.io.IOException;
+import java.util.ArrayList;
 
 public class SummenTask extends Task {
 
-    int kNr;
-    double rabattsatz;
+    ArrayList<Integer> intervallGrenzen;
+    ArrayList<String> bezeichner = new ArrayList<>();
 
     public SummenTask() {
         setTitle("Summenformel-Rechner");
         setDescription(
-                "Die Anwendung gibt je nach Kundennummer einen anderen Rabattsatz aus.\n\b" +
-                "Versuche es mit Werten > 5000, Werten < 3000 und auch Werten dazwischen."
+                "Berechne die Summe im Intervall I [a,b]."
         );
     }
 
     public void init () throws IOException {
+        bezeichner.add(0,"a: ");
+        bezeichner.add(1,"b: ");
         printInfo();
         getInput();
     }
@@ -29,32 +31,29 @@ public class SummenTask extends Task {
         while (true) {
             try {
                 System.out.println();
-                System.out.print("Kundennummer eingeben: ");
-                String input = Input.console.readLine();
-                if(input.equals("exit")) {
-                    break;
-                } else {
-                    kNr = Integer.parseInt(input);
-                    printRabatt();
+                intervallGrenzen = new ArrayList<>();
+                for (int i = 0; i <2 ; i++) {
+                    System.out.print(bezeichner.get(i));
+                    String input = scanner.next();
+                    if(input.equals("exit")) {
+                        exit();
+                    } else {
+                        intervallGrenzen.add(i,Integer.parseInt(input));
+                    }
                 }
+                calculateSum(intervallGrenzen.get(0),intervallGrenzen.get(1));
             } catch (NumberFormatException exception) {
-                System.out.println("Kundennummer oder 'exit' eingeben.");
-            } catch (IOException e) {
-                throw new RuntimeException(e);
+                System.out.println("Intervallgrenze oder 'exit' eingeben.");
             }
         }
-        exit();
     }
 
-    protected void printRabatt () {
-        if(kNr > 5000) {
-            rabattsatz = 0.1;
-        } else if (kNr >= 3000) {
-            rabattsatz = 0;
-        } else {
-            rabattsatz = 0.12;
+    protected void calculateSum (int lowLimit, int highLimit) {
+        int sum = 0;
+        for (int i = lowLimit; i <= highLimit; i++) {
+            sum = sum+i;
         }
-        System.out.printf("Rabatt beträgt %s Prozent. %n",rabattsatz*100);
+        System.out.printf("Die Summe im Intervall I[%s,%s] beträgt %s. %n",lowLimit,highLimit,sum);
     }
 
 }

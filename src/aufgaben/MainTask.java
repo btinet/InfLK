@@ -17,6 +17,7 @@ public class MainTask extends Task {
     public MainTask () throws IOException {
         addTask(new RabattTask());
         addTask(new BmiTask());
+        addTask(new SummenTask());
         addTask(new ParkuhrTask());
         addTask(new DiceTask());
         init();
@@ -43,13 +44,12 @@ public class MainTask extends Task {
             try {
                 System.out.println();
                 System.out.print("Auswahl: ");
-                String input = Input.console.readLine();
+                String input = scanner.next();
                 if(input.equals("exit")) {
                     break;
                 } else {
                     operation = Integer.parseInt(input);
                 }
-
             } catch (NumberFormatException exception) {
                 System.out.println("Eingabe konnte nicht zugeordnet werden. Bitte Ziffer oder 'exit' eingeben.");
             }

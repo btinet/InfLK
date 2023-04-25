@@ -1,15 +1,14 @@
 package engine;
 
 import aufgaben.MainTask;
-import com.sun.tools.javac.Main;
-
-import java.io.BufferedReader;
 import java.io.IOException;
+import java.util.Scanner;
 
 public abstract class Task implements TaskInterface{
 
     protected String title;
     protected String description;
+    protected Scanner scanner = new Scanner(System.in);
 
     public Task () {
     }

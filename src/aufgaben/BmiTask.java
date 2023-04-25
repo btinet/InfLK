@@ -38,16 +38,16 @@ public class BmiTask extends Task {
                 switch (step) {
                     case 4:
                         System.out.println();
-                        System.out.print("Wieviel kg wiegst du? ");
-                        input = Input.console.readLine();
+                        System.out.print("Wie viel kg wiegst du? ");
+                        input = scanner.next();
                         if(input.equals("exit")) exit();
                         bodyWeight = Integer.parseInt(input);
                         step--;
                         break;
                     case 3:
                         System.out.println();
-                        System.out.print("Wieviel groß bist du in cm? ");
-                        input = Input.console.readLine();
+                        System.out.print("Wie groß bist du in cm? ");
+                        input = scanner.next();
                         if(input.equals("exit")) exit();
                         bodyHeight = Integer.parseInt(input);
                         step--;
@@ -55,7 +55,7 @@ public class BmiTask extends Task {
                     case 2:
                         System.out.println();
                         System.out.print("Bist du eine Frau? (ja/nein): ");
-                        input = Input.console.readLine();
+                        input = scanner.next();
                         if(input.equals("exit")) exit();
                         if(input.equals("ja")) {
                             System.out.println("Ok, du bist eine Frau.");
@@ -69,7 +69,7 @@ public class BmiTask extends Task {
                     case 1:
                         System.out.println();
                         System.out.print("Wie alt bist du? ");
-                        input = Input.console.readLine();
+                        input = scanner.next();
                         if(input.equals("exit")) exit();
                         age = Integer.parseInt(input);
                         step--;
@@ -79,7 +79,7 @@ public class BmiTask extends Task {
                         printBmi();
                         System.out.println();
                         System.out.print("Nochmal? (ja/nein) ");
-                        input = Input.console.readLine();
+                        input = scanner.next();
                         if(input.equals("nein")) {
                             exit();
                         } else {

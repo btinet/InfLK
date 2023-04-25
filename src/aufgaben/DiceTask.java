@@ -13,8 +13,6 @@ public class DiceTask extends Task {
     int startGuthaben = 5;
     int aktuellesGuthaben = -1;
 
-    Scanner scanner = new Scanner(System.in);
-
     public DiceTask() {
         setTitle("Würfelspiel");
         setDescription(
@@ -34,7 +32,7 @@ public class DiceTask extends Task {
             try {
                 System.out.println();
                 System.out.print("Dein Tipp: ");
-                String input = scanner.next(); // Input.console.readLine();
+                String input = scanner.next();
                 if(input.equals("exit")) {
                     break;
                 } else if(Integer.parseInt(input) >= 1 && Integer.parseInt(input) <= 6){
@@ -66,11 +64,15 @@ public class DiceTask extends Task {
         for (int i = 1; i <= 3; i++) {
             int currentDiceRoll = ThreadLocalRandom.current().nextInt(1,6 + 1);
 
+            String augenZahl = "Augen";
+            if(currentDiceRoll == 1)augenZahl = "Auge";
+
             if(tipp == currentDiceRoll) {
                 treffer++;
-                System.out.printf("Wurf %s ergibt: %s Augen. Du triffst!%n",i,currentDiceRoll);
+
+                System.out.printf("Wurf %s ergibt: %s %s. Du triffst!%n",i,currentDiceRoll,augenZahl);
             } else {
-                System.out.printf("Wurf %s ergibt: %s Augen. Leider daneben!%n",i,currentDiceRoll);
+                System.out.printf("Wurf %s ergibt: %s %s. Leider daneben!%n",i,currentDiceRoll,augenZahl);
             }
         }
 
