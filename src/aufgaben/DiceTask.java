@@ -2,7 +2,6 @@ package aufgaben;
 
 
 import engine.Task;
-import io.Input;
 
 import java.io.IOException;
 import java.util.Scanner;
@@ -57,8 +56,8 @@ public class DiceTask extends Task {
     protected void rollDice () throws IOException {
 
         int treffer = 0;
-        if(aktuellesGuthaben == -1) {
-            aktuellesGuthaben = startGuthaben;
+        if(aktuellesGuthaben == -1) { // Beim ersten Start ist das Guthaben auf -1 gesetzt.
+            aktuellesGuthaben = startGuthaben; // Startguthaben ist 5€.
         } else if(aktuellesGuthaben == 0) {
             System.out.println("Du hast kein Guthaben mehr. Bis zum nächsten Mal!");
             exit();
