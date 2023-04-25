@@ -37,7 +37,7 @@ public class ParkuhrTask extends Task {
                     break;
                 } else {
                     duration = Integer.parseInt(input);
-                    printRabatt();
+                    printAmount();
                 }
             } catch (NumberFormatException exception) {
                 System.out.println("Ganze Zahl oder 'exit' eingeben.");
@@ -48,7 +48,8 @@ public class ParkuhrTask extends Task {
         exit();
     }
 
-    protected void printRabatt () {
+    protected void printAmount () {
+        // TODO: Algorithmus entwickeln (while und/oder for-Schleife bietet sich an)
         if(duration <= 90) {
             amount = 3;
         } else if (duration < 60 * 24) {
