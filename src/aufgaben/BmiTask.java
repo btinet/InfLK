@@ -1,6 +1,7 @@
 package aufgaben;
 
 
+import engine.DoubleFormatter;
 import engine.Task;
 import io.Input;
 
@@ -126,8 +127,7 @@ public class BmiTask extends Task {
             if (targetBmi > upperEnd++) weightType = 1;
         }
 
-        DecimalFormat df = new DecimalFormat("#.##");
-        System.out.printf("Dein BMI ist %s (%s Jahre).%n",df.format(targetBmi),age);
+        System.out.printf("Dein BMI ist %s (%s Jahre).%n", DoubleFormatter.getFormattedString(targetBmi,"#.##"),age);
         String typ = "";
         switch (weightType) {
             case -1:

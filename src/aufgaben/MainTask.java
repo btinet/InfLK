@@ -17,6 +17,7 @@ public class MainTask extends Task {
     public MainTask () throws IOException {
         addTask(new RabattTask());
         addTask(new BmiTask());
+        addTask(new ParkuhrTask());
         init();
     }
 
